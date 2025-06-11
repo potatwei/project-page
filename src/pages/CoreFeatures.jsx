@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Grid, Card, CardContent } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, CardMedia } from '@mui/material';
 
 const CoreFeatures = () => {
   const features = [
@@ -35,30 +35,60 @@ const CoreFeatures = () => {
         </Typography>
 
         <Grid container spacing={4}>
-          {features.map((feature, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
-              <Card sx={{ height: '100%' }}>
-                <Box
-                  component="img"
-                  src={feature.image}
-                  alt={feature.title}
-                  sx={{
-                    width: '100%',
-                    height: 200,
-                    objectFit: 'cover',
-                  }}
-                />
-                <CardContent>
-                  <Typography variant="h5" component="h3" gutterBottom>
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {feature.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+          <Grid item xs={12} md={4}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image="https://via.placeholder.com/800x600"
+                alt="[PLACEHOLDER] Feature 1"
+              />
+              <CardContent>
+                <Typography variant="h5" component="h3" gutterBottom>
+                  [PLACEHOLDER] Feature 1
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  [PLACEHOLDER] This is a placeholder description for the first core feature. Replace with actual feature description.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image="https://via.placeholder.com/800x600"
+                alt="[PLACEHOLDER] Feature 2"
+              />
+              <CardContent>
+                <Typography variant="h5" component="h3" gutterBottom>
+                  [PLACEHOLDER] Feature 2
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  [PLACEHOLDER] This is a placeholder description for the second core feature. Replace with actual feature description.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image="https://via.placeholder.com/800x600"
+                alt="[PLACEHOLDER] Feature 3"
+              />
+              <CardContent>
+                <Typography variant="h5" component="h3" gutterBottom>
+                  [PLACEHOLDER] Feature 3
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  [PLACEHOLDER] This is a placeholder description for the third core feature. Replace with actual feature description.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
       </Container>
     </Box>

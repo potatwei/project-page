@@ -30,6 +30,63 @@ const Details = () => {
         </Typography>
 
         <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <Box
+              component="img"
+              src="https://via.placeholder.com/800x600"
+              alt="[PLACEHOLDER] Technical Details Image"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 4,
+                boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" component="h3" gutterBottom>
+              [PLACEHOLDER] Technical Details
+            </Typography>
+            <Typography variant="body1" paragraph>
+              [PLACEHOLDER] This is a placeholder for technical specifications and implementation details. Replace with actual technical information about the project.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              [PLACEHOLDER] This is a placeholder for additional technical details, including system requirements, dependencies, and implementation notes.
+            </Typography>
+            <Typography variant="body1">
+              [PLACEHOLDER] This is a placeholder for performance metrics, benchmarks, and other technical considerations.
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={4} sx={{ mt: 4 }}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" component="h3" gutterBottom>
+              [PLACEHOLDER] Implementation
+            </Typography>
+            <Typography variant="body1" paragraph>
+              [PLACEHOLDER] This is a placeholder for implementation details and methodology. Replace with actual implementation information.
+            </Typography>
+            <Typography variant="body1">
+              [PLACEHOLDER] This is a placeholder for additional implementation notes, including development process and technical decisions.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box
+              component="img"
+              src="https://via.placeholder.com/800x600"
+              alt="[PLACEHOLDER] Implementation Image"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 4,
+                boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
+              }}
+            />
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={4}>
           {details.map((detail, index) => (
             <Grid item xs={12} md={4} key={index}>
               <Card sx={{ height: '100%' }}>

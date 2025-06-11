@@ -6,36 +6,48 @@ const Gallery = () => {
 
   const categories = ['All', 'Novel Views', 'Novel Poses', 'Novel IDs', 'Special Effects'];
 
-  const galleryItems = [
+  const items = [
     {
-      title: 'Novel View Example 1',
-      category: 'Novel Views',
-      image: 'https://via.placeholder.com/300x200',
+      id: 1,
+      title: '[PLACEHOLDER] Novel View Example',
+      description: '[PLACEHOLDER] This is a placeholder image. Replace with actual novel view rendering.',
+      image: 'https://via.placeholder.com/800x600',
+      category: 'novel-view',
     },
     {
-      title: 'Novel Pose Example 1',
-      category: 'Novel Poses',
-      image: 'https://via.placeholder.com/300x200',
+      id: 2,
+      title: '[PLACEHOLDER] Novel Pose Example',
+      description: '[PLACEHOLDER] This is a placeholder image. Replace with actual novel pose rendering.',
+      image: 'https://via.placeholder.com/800x600',
+      category: 'novel-pose',
     },
     {
-      title: 'Novel ID Example 1',
-      category: 'Novel IDs',
-      image: 'https://via.placeholder.com/300x200',
+      id: 3,
+      title: '[PLACEHOLDER] Novel ID Example',
+      description: '[PLACEHOLDER] This is a placeholder image. Replace with actual novel ID rendering.',
+      image: 'https://via.placeholder.com/800x600',
+      category: 'novel-id',
     },
     {
-      title: 'Special Effect Example 1',
-      category: 'Special Effects',
-      image: 'https://via.placeholder.com/300x200',
+      id: 4,
+      title: '[PLACEHOLDER] Special Effect Example',
+      description: '[PLACEHOLDER] This is a placeholder image. Replace with actual special effect rendering.',
+      image: 'https://via.placeholder.com/800x600',
+      category: 'special-effects',
     },
     {
-      title: 'Novel View Example 2',
-      category: 'Novel Views',
-      image: 'https://via.placeholder.com/300x200',
+      id: 5,
+      title: '[PLACEHOLDER] Novel View Example 2',
+      description: '[PLACEHOLDER] This is a placeholder image. Replace with actual novel view rendering.',
+      image: 'https://via.placeholder.com/800x600',
+      category: 'novel-view',
     },
     {
-      title: 'Novel Pose Example 2',
-      category: 'Novel Poses',
-      image: 'https://via.placeholder.com/300x200',
+      id: 6,
+      title: '[PLACEHOLDER] Novel Pose Example 2',
+      description: '[PLACEHOLDER] This is a placeholder image. Replace with actual novel pose rendering.',
+      image: 'https://via.placeholder.com/800x600',
+      category: 'novel-pose',
     },
   ];
 
@@ -44,8 +56,8 @@ const Gallery = () => {
   };
 
   const filteredItems = selectedTab === 0
-    ? galleryItems
-    : galleryItems.filter(item => item.category === categories[selectedTab]);
+    ? items
+    : items.filter(item => item.category === categories[selectedTab]);
 
   return (
     <Box id="gallery" sx={{ py: 8, bgcolor: 'background.default' }}>

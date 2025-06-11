@@ -26,8 +26,35 @@ const Overview = () => {
           Overview
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>
-          [Placeholder] DNA-Rendering is a comprehensive dataset and framework for high-fidelity human-centric rendering, featuring a diverse collection of actors and performances.
+          [PLACEHOLDER] DNA-Rendering is a comprehensive dataset and framework for high-fidelity human-centric rendering, featuring a diverse collection of actors and performances.
         </Typography>
+
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <Box
+              component="img"
+              src="https://via.placeholder.com/800x600"
+              alt="[PLACEHOLDER] Overview Image"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 4,
+                boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" component="h3" gutterBottom>
+              [PLACEHOLDER] Overview Title
+            </Typography>
+            <Typography variant="body1" paragraph>
+              [PLACEHOLDER] This is a placeholder description for the overview section. Replace with actual content about the project overview, goals, and significance.
+            </Typography>
+            <Typography variant="body1">
+              [PLACEHOLDER] This is a placeholder for additional information about the project's scope, methodology, and expected outcomes.
+            </Typography>
+          </Grid>
+        </Grid>
 
         <Grid container spacing={4}>
           {features.map((feature, index) => (

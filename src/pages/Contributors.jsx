@@ -3,53 +3,53 @@ import { Box, Container, Typography, Grid, Card, CardContent, Avatar } from '@mu
 const Contributors = () => {
   const teamMembers = [
     {
-      name: 'Team Member 1',
-      role: 'Principal Investigator',
-      image: 'https://via.placeholder.com/150',
+      name: "[PLACEHOLDER] Team Member 1",
+      role: "Principal Investigator",
+      image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=200&h=200&fit=crop&auto=format"
     },
     {
-      name: 'Team Member 2',
-      role: 'Lead Researcher',
-      image: 'https://via.placeholder.com/150',
+      name: "[PLACEHOLDER] Team Member 2",
+      role: "Lead Researcher",
+      image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=200&h=200&fit=crop&auto=format"
     },
     {
-      name: 'Team Member 3',
-      role: 'Research Scientist',
-      image: 'https://via.placeholder.com/150',
+      name: "[PLACEHOLDER] Team Member 3",
+      role: "Research Scientist",
+      image: "https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=200&h=200&fit=crop&auto=format"
     },
     {
-      name: 'Team Member 4',
-      role: 'Research Scientist',
-      image: 'https://via.placeholder.com/150',
+      name: "[PLACEHOLDER] Team Member 4",
+      role: "Research Scientist",
+      image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=200&h=200&fit=crop&auto=format"
     },
     {
-      name: 'Team Member 5',
-      role: 'Research Engineer',
-      image: 'https://via.placeholder.com/150',
+      name: "[PLACEHOLDER] Team Member 5",
+      role: "Research Engineer",
+      image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=200&h=200&fit=crop&auto=format"
     },
     {
-      name: 'Team Member 6',
-      role: 'Research Engineer',
-      image: 'https://via.placeholder.com/150',
-    },
+      name: "[PLACEHOLDER] Team Member 6",
+      role: "Research Engineer",
+      image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=200&h=200&fit=crop&auto=format"
+    }
   ];
 
   const contributedMembers = [
     {
-      name: 'Contributor 1',
-      role: 'External Collaborator',
-      image: 'https://via.placeholder.com/150',
+      name: "[PLACEHOLDER] Contributor 1",
+      role: "External Collaborator",
+      image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=200&h=200&fit=crop&auto=format"
     },
     {
-      name: 'Contributor 2',
-      role: 'External Collaborator',
-      image: 'https://via.placeholder.com/150',
+      name: "[PLACEHOLDER] Contributor 2",
+      role: "External Collaborator",
+      image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=200&h=200&fit=crop&auto=format"
     },
     {
-      name: 'Contributor 3',
-      role: 'External Collaborator',
-      image: 'https://via.placeholder.com/150',
-    },
+      name: "[PLACEHOLDER] Contributor 3",
+      role: "External Collaborator",
+      image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=200&h=200&fit=crop&auto=format"
+    }
   ];
 
   return (
