@@ -52,7 +52,7 @@ const Home = () => {
   const theme = useTheme();
 
   return (
-    <Box id="home" sx={{ py: 8, bgcolor: '#fff' }}>
+    <Box id="home" sx={{ bgcolor: '#fff' }}>
       <GradientBox>
         <FloatingElement sx={{ top: '10%', left: '10%' }} />
         <FloatingElement sx={{ bottom: '10%', right: '10%', animationDelay: '-3s' }} />
