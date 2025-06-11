@@ -20,9 +20,29 @@ const Details = () => {
   ];
 
   return (
-    <Box id="details" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box id="details" sx={{ py: 8, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" component="h2" gutterBottom align="center">
+        <Typography 
+          variant="h3" 
+          component="h2" 
+          gutterBottom 
+          align="center"
+          sx={{
+            mb: 6,
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: -16,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              background: 'linear-gradient(90deg, #ff9800, #ffe066)', // Orange to Yellow
+              borderRadius: '2px',
+            },
+          }}
+        >
           Technical Details
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>

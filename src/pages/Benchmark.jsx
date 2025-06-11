@@ -25,10 +25,30 @@ const Benchmark = () => {
   ];
 
   return (
-    <Box id="benchmark" sx={{ py: 8, bgcolor: 'background.paper' }}>
+    <Box id="benchmark" sx={{ py: 8, bgcolor: '#f8f9fa' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" component="h2" gutterBottom align="center">
-          Benchmark Results
+        <Typography 
+          variant="h3" 
+          component="h2" 
+          gutterBottom 
+          align="center"
+          sx={{
+            mb: 6,
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: -16,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              background: 'linear-gradient(90deg, #43ea6d, #c6ff00)', // Green to Lime
+              borderRadius: '2px',
+            },
+          }}
+        >
+          Benchmark
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>
           [Placeholder] Explore our comprehensive benchmark results across various rendering tasks.

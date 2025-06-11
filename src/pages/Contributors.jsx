@@ -53,9 +53,29 @@ const Contributors = () => {
   ];
 
   return (
-    <Box id="contributors" sx={{ py: 8, bgcolor: 'background.paper' }}>
+    <Box id="contributors" sx={{ py: 8, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" component="h2" gutterBottom align="center">
+        <Typography 
+          variant="h3" 
+          component="h2" 
+          gutterBottom 
+          align="center"
+          sx={{
+            mb: 6,
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: -16,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              background: 'linear-gradient(90deg, #f06292, #57068C)', // Pink to Purple
+              borderRadius: '2px',
+            },
+          }}
+        >
           Contributors
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>

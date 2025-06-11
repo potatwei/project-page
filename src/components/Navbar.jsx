@@ -48,10 +48,10 @@ const Navbar = () => {
   const navItems = [
     { label: 'Home', id: 'home' },
     { label: 'Overview', id: 'overview' },
+    { label: 'Highlight Data', id: 'highlight-data' },
     { label: 'Core Features', id: 'core-features' },
     { label: 'Details', id: 'details' },
     { label: 'Benchmark', id: 'benchmark' },
-    { label: 'Gallery', id: 'gallery' },
     { label: 'Download', id: 'download' },
     { label: 'Research', id: 'research' },
     { label: 'Contributors', id: 'contributors' },
@@ -174,7 +174,7 @@ const Navbar = () => {
           keepMounted: true, // Better open performance on mobile
         }}
         sx={{
-          display: { xs: 'block', md: 'none' },
+          display: isMobile ? 'block' : 'none',
           '& .MuiDrawer-paper': { 
             boxSizing: 'border-box', 
             width: 240,

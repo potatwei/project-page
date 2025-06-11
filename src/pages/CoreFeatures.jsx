@@ -25,9 +25,29 @@ const CoreFeatures = () => {
   ];
 
   return (
-    <Box id="core-features" sx={{ py: 8, bgcolor: 'background.paper' }}>
+    <Box id="core-features" sx={{ py: 8, bgcolor: '#f8f9fa' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" component="h2" gutterBottom align="center">
+        <Typography 
+          variant="h3" 
+          component="h2" 
+          gutterBottom 
+          align="center"
+          sx={{
+            mb: 6,
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: -16,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              background: 'linear-gradient(90deg, #00A3B4, #43ea6d)', // Teal to Green
+              borderRadius: '2px',
+            },
+          }}
+        >
           Core Features
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>

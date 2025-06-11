@@ -52,7 +52,7 @@ const Home = () => {
   const theme = useTheme();
 
   return (
-    <Box id="home">
+    <Box id="home" sx={{ py: 8, bgcolor: '#fff' }}>
       <GradientBox>
         <FloatingElement sx={{ top: '10%', left: '10%' }} />
         <FloatingElement sx={{ bottom: '10%', right: '10%', animationDelay: '-3s' }} />
@@ -78,7 +78,7 @@ const Home = () => {
                 letterSpacing: '-0.02em',
               }}
             >
-              DNA-Rendering
+              DATESET NAME
             </Typography>
             <Typography
               variant="h4"
@@ -93,7 +93,7 @@ const Home = () => {
                 textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
               }}
             >
-              [Placeholder] A revolutionary approach to 3D rendering using DNA-based algorithms
+              [Placeholder] A concise description of the dataset
             </Typography>
             <Box sx={{ 
               display: 'flex', 
@@ -143,61 +143,6 @@ const Home = () => {
           </Box>
         </Container>
       </GradientBox>
-
-      {/* Highlight Data Section */}
-      <Container maxWidth="lg" sx={{ py: 12 }}>
-        <Typography 
-          variant="h3" 
-          component="h2" 
-          gutterBottom 
-          align="center"
-          sx={{
-            mb: 6,
-            position: 'relative',
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              bottom: -16,
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '60px',
-              height: '4px',
-              background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.accent.blue})`,
-              borderRadius: '2px',
-            },
-          }}
-        >
-          Highlight Data
-        </Typography>
-        <Typography 
-          variant="body1" 
-          paragraph 
-          align="center"
-          sx={{
-            maxWidth: '800px',
-            mx: 'auto',
-            mb: 6,
-            color: theme.palette.text.secondary,
-          }}
-        >
-          [PLACEHOLDER] This is a placeholder description. Replace with actual dataset information about the number of actors, types of performances, and interaction objects.
-        </Typography>
-        <Box
-          component="img"
-          src="https://via.placeholder.com/1200x600"
-          alt="[PLACEHOLDER] Dataset Preview Image"
-          sx={{
-            width: '100%',
-            height: 'auto',
-            borderRadius: 4,
-            boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease-in-out',
-            '&:hover': {
-              transform: 'scale(1.02)',
-            },
-          }}
-        />
-      </Container>
     </Box>
   );
 };

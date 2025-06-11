@@ -20,13 +20,33 @@ const Overview = () => {
   ];
 
   return (
-    <Box id="overview" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box id="overview" sx={{ py: 8, bgcolor: '#f8f9fa' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" component="h2" gutterBottom align="center">
+        <Typography 
+          variant="h3" 
+          component="h2" 
+          gutterBottom 
+          align="center"
+          sx={{
+            mb: 6,
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: -16,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              background: 'linear-gradient(90deg, #1976d2, #00e5ff)', // Blue to Cyan
+              borderRadius: '2px',
+            },
+          }}
+        >
           Overview
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>
-          [PLACEHOLDER] DNA-Rendering is a comprehensive dataset and framework for high-fidelity human-centric rendering, featuring a diverse collection of actors and performances.
+          [PLACEHOLDER] This is a comprehensive dataset for high-fidelity human-centric rendering, featuring a diverse collection of actors and performances.
         </Typography>
 
         <Grid container spacing={4}>
@@ -44,9 +64,6 @@ const Overview = () => {
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography variant="h4" component="h3" gutterBottom>
-              [PLACEHOLDER] Overview Title
-            </Typography>
             <Typography variant="body1" paragraph>
               [PLACEHOLDER] This is a placeholder description for the overview section. Replace with actual content about the project overview, goals, and significance.
             </Typography>

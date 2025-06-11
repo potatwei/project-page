@@ -5,9 +5,29 @@ import PhoneIcon from '@mui/icons-material/Phone';
 
 const Contact = () => {
   return (
-    <Box id="contact" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box id="contact" sx={{ py: 8, bgcolor: '#f8f9fa' }}>
       <Container maxWidth="md">
-        <Typography variant="h3" component="h2" gutterBottom align="center" sx={{ color: '#57068C' }}>
+        <Typography 
+          variant="h3" 
+          component="h2" 
+          gutterBottom 
+          align="center"
+          sx={{
+            mb: 6,
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: -16,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '60px',
+              height: '4px',
+              background: 'linear-gradient(90deg, #bdbdbd, #212121)', // Gray to Black
+              borderRadius: '2px',
+            },
+          }}
+        >
           Contact Us
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>
