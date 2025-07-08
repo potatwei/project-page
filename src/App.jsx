@@ -10,6 +10,7 @@ import Download from './pages/Download';
 import Research from './pages/Research';
 import Contributors from './pages/Contributors';
 import Contact from './pages/Contact';
+import Demo from './pages/Demo';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <Box component="main">
         <Home />
+        <Demo />
         <Overview />
         <HighlightData />
         <CoreFeatures />
