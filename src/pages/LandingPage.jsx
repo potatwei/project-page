@@ -155,7 +155,7 @@ const LandingPage = () => {
                 letterSpacing: '-0.02em',
               }}
             >
-              DNA-Rendering
+              Project Title
             </Typography>
             <Typography
               variant="h5"
@@ -258,7 +258,7 @@ const LandingPage = () => {
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
             <Box sx={{ flex: 1, pr: { md: 2 } }}>
               <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7, mb: 3 }}>
-                DNA-Rendering represents a groundbreaking initiative to revolutionize human-centric rendering 
+                Our project represents a groundbreaking initiative to revolutionize human-centric rendering 
                 through a comprehensive, diverse repository of neural actor representations. Our project aims 
                 to advance the field of computer graphics and computer vision by providing researchers and 
                 developers with high-quality, accessible research data.

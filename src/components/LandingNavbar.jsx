@@ -145,7 +145,7 @@ const LandingNavbar = () => {
           }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          DNA-Rendering
+          Project Title
         </Typography>
         {isMobile ? (
           <IconButton

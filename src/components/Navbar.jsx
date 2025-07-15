@@ -149,7 +149,7 @@ const Navbar = () => {
           }}
           onClick={() => scrollToSection('home')}
         >
-          DNA-Rendering
+          DanceNet3D
         </Typography>
         {isMobile ? (
           <IconButton

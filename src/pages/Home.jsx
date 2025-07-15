@@ -78,7 +78,7 @@ const Home = () => {
                 letterSpacing: '-0.02em',
               }}
             >
-              DATESET NAME
+              DanceNet3D
             </Typography>
             <Typography
               variant="h4"
