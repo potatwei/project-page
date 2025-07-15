@@ -1,31 +1,99 @@
-import { Box, Container, Typography, Grid, Card, CardContent, CardMedia } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, CardMedia, Chip } from '@mui/material';
+import { useState, useEffect, useRef } from 'react';
 
 const CoreFeatures = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [animatedStats, setAnimatedStats] = useState([0, 0, 0, 0]);
+  const sectionRef = useRef(null);
+
+  const stats = [
+    { number: 60, label: 'Motions', color: 'secondary', suffix: '' },
+    { number: 26, label: 'Views', color: 'success', suffix: '' },
+    { number: 4000000, label: 'Frames', color: 'warning', suffix: '' },
+    { number: 4096, label: 'Max Resolution', color: 'error', suffix: '' },
+  ];
+
+  // Format numbers for display
+  const formatNumber = (num) => {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + 'M';
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(0) + 'K';
+    }
+    return num.toString();
+  };
+
+  // Intersection Observer to detect when section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  // Animate numbers when section becomes visible
+  useEffect(() => {
+    if (isVisible) {
+      const duration = 2000; // 2 seconds
+      const steps = 60; // 60 frames
+      const interval = duration / steps;
+
+      stats.forEach((stat, index) => {
+        let currentValue = 0;
+        const increment = stat.number / steps;
+        
+        const timer = setInterval(() => {
+          currentValue += increment;
+          if (currentValue >= stat.number) {
+            currentValue = stat.number;
+            clearInterval(timer);
+          }
+          
+          setAnimatedStats(prev => {
+            const newStats = [...prev];
+            newStats[index] = Math.floor(currentValue);
+            return newStats;
+          });
+        }, interval);
+      });
+    }
+  }, [isVisible]);
+
   const features = [
     {
-      title: 'Neural Implicit Fields',
-      description: 'Advanced neural representation for high-fidelity human rendering',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'Multi-Camera Dance Capture',
+      description: 'Comprehensive dance dataset captured with 26 synchronized cameras featuring over 50 dance styles including chacha, basic, suzieq, attitude, promenade, and more. Each performance ranges from 10 seconds to 2 minutes.',
+      image: 'https://picsum.photos/300/200?random=20',
     },
     {
-      title: 'Diverse Performances',
-      description: 'Wide range of actions and interactions captured in high quality',
-      image: 'https://via.placeholder.com/300x200',
+      title: '3D Gaussian Splatting Training',
+      description: 'Advanced 3DGS models trained for each frame, providing high-fidelity neural representations for real-time rendering and novel view synthesis of human dance performances.',
+      image: 'https://picsum.photos/300/200?random=21',
     },
     {
-      title: 'Special Effects',
-      description: 'Support for various costumes, makeup, and interaction objects',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'Diverse Dance Styles',
+      description: 'Covers a wide range of dance genres and difficulty levels, from basic movements to complex choreography, with 527 clothing types and 422 action types for comprehensive research applications.',
+      image: 'https://picsum.photos/300/200?random=22',
     },
     {
-      title: 'High Resolution',
-      description: 'Ultra-high resolution capture for detailed rendering',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'High-Quality Annotations',
+      description: 'Includes precise 2D/3D human keypoints, foreground masks, and SMPL-X models, specifically optimized for 3D human body scenarios and dance motion analysis.',
+      image: 'https://picsum.photos/300/200?random=23',
     },
   ];
 
   return (
-    <Box id="core-features" sx={{ py: 8, bgcolor: '#f8f9fa' }}>
+    <Box id="core-features" ref={sectionRef} sx={{ py: 8, bgcolor: '#f8f9fa' }}>
       <Container maxWidth="lg">
         <Typography 
           variant="h3" 
@@ -51,65 +119,60 @@ const CoreFeatures = () => {
           Core Features
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>
-          [Placeholder] Our core features enable high-quality human-centric rendering with unprecedented detail and realism.
+          Our comprehensive dance dataset provides unprecedented scale and quality for 3D human rendering research, featuring multi-camera capture and 3D Gaussian Splatting training for each frame.
         </Typography>
 
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="https://via.placeholder.com/800x600"
-                alt="[PLACEHOLDER] Feature 1"
-              />
-              <CardContent>
-                <Typography variant="h5" component="h3" gutterBottom>
-                  [PLACEHOLDER] Feature 1
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  [PLACEHOLDER] This is a placeholder description for the first core feature. Replace with actual feature description.
-                </Typography>
-              </CardContent>
-            </Card>
+        {/* Statistics Section */}
+        <Box sx={{ mb: 8 }}>
+          <Grid container spacing={7} justifyContent="center">
+            {stats.map((stat, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Card sx={{ 
+                  textAlign: 'center', 
+                  p: 2, 
+                  height: '100%',
+                  background: 'linear-gradient(135deg, rgba(87, 6, 140, 0.05) 0%, rgba(0, 102, 177, 0.05) 100%)',
+                }}>
+                  <Typography variant="h3" component="div" color="primary" fontWeight="bold">
+                    {formatNumber(animatedStats[index])}
+                    {stat.suffix}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                    {stat.label}
+                  </Typography>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
-          <Grid item xs={12} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="https://via.placeholder.com/800x600"
-                alt="[PLACEHOLDER] Feature 2"
-              />
-              <CardContent>
-                <Typography variant="h5" component="h3" gutterBottom>
-                  [PLACEHOLDER] Feature 2
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  [PLACEHOLDER] This is a placeholder description for the second core feature. Replace with actual feature description.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="https://via.placeholder.com/800x600"
-                alt="[PLACEHOLDER] Feature 3"
-              />
-              <CardContent>
-                <Typography variant="h5" component="h3" gutterBottom>
-                  [PLACEHOLDER] Feature 3
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  [PLACEHOLDER] This is a placeholder description for the third core feature. Replace with actual feature description.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+        </Box>
+
+        {/* Main Features */}
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, mb: 4, justifyContent: 'center' }}>
+          {features.map((feature, index) => (
+            <Box key={index} sx={{ 
+              width: { xs: '100%', sm: 'calc(50% - 12px)' },
+              minWidth: { sm: '300px' },
+              maxWidth: { sm: '500px' }
+            }}>
+              <Card sx={{ height: '100%', width: '100%' }}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={feature.image}
+                  alt={feature.title}
+                />
+                <CardContent>
+                  <Typography variant="h5" component="h3" gutterBottom>
+                    {feature.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {feature.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Box>
+          ))}
+        </Box>
       </Container>
     </Box>
   );

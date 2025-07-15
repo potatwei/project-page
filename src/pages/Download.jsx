@@ -98,18 +98,16 @@ const Download = () => {
                     variant="contained"
                     color="primary"
                     fullWidth
+                    startIcon={<DownloadIcon />}
                     sx={{ 
-                      mt: 'auto', 
-                      pt: 2,
-                      position: 'relative',
-                      display: 'block',
-                      textAlign: 'center',
+                      mt: 'auto',
+                      py: 1.5,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                     }}
                   >
-                    <DownloadIcon sx={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', fontSize: 20 }} />
-                    <Box component="span" sx={{ width: '100%', display: 'inline-block', marginBottom: 0,}}>
-                      Download
-                    </Box>
+                    Download
                   </Button>
                 </CardContent>
               </Card>

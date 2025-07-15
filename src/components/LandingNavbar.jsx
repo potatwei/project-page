@@ -16,7 +16,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 
-const Navbar = () => {
+const LandingNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
@@ -52,14 +52,10 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { label: 'Landing', action: '/', type: 'link' },
-    { label: 'Home', id: 'home' },
-    { label: 'Overview', id: 'overview' },
-    { label: 'Highlight Data', id: 'highlight-data' },
-    { label: 'Core Features', id: 'core-features' },
-    { label: 'Details', id: 'details' },
-    { label: 'Benchmark', id: 'benchmark' },
-    { label: 'Download', id: 'download' },
+    { label: 'Overview', action: () => scrollToSection('overview'), type: 'scroll' },
+    { label: 'Team', action: () => scrollToSection('team'), type: 'scroll' },
+    { label: 'Research', action: () => scrollToSection('research'), type: 'scroll' },
+    { label: 'Dataset', action: '/dataset', type: 'link' },
   ];
 
   const handleDrawerToggle = () => {
@@ -81,8 +77,8 @@ const Navbar = () => {
       <List>
         {navItems.map((item, index) => (
           <ListItem 
-            key={item.id || index} 
-            onClick={item.type === 'link' ? undefined : () => scrollToSection(item.id)}
+            key={index} 
+            onClick={item.type === 'scroll' ? item.action : undefined}
             component={item.type === 'link' ? RouterLink : 'div'}
             to={item.type === 'link' ? item.action : undefined}
             sx={{
@@ -147,7 +143,7 @@ const Navbar = () => {
               opacity: isScrolled ? 1 : 0.3,
             },
           }}
-          onClick={() => scrollToSection('home')}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           DNA-Rendering
         </Typography>
@@ -173,9 +169,9 @@ const Navbar = () => {
           <Box sx={{ display: 'flex', gap: 0.5 }}>
             {navItems.map((item, index) => (
               <Button
-                key={item.id || index}
+                key={index}
                 color="inherit"
-                onClick={item.type === 'link' ? undefined : () => scrollToSection(item.id)}
+                onClick={item.type === 'scroll' ? item.action : undefined}
                 component={item.type === 'link' ? RouterLink : 'button'}
                 to={item.type === 'link' ? item.action : undefined}
                 sx={{
@@ -223,4 +219,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default LandingNavbar; 

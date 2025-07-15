@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Box, Container, Typography, Card, CardMedia, CardContent, useTheme, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -66,73 +66,93 @@ const HighlightData = () => {
   const items = [
     {
       id: 1,
-      title: "[PLACEHOLDER] Novel View Example",
-      description: "This is a placeholder image. Replace with actual novel view rendering.",
-      image: "https://via.placeholder.com/400x300",
+      title: "Novel View Synthesis",
+      description: "High-quality rendering from unseen viewpoints using neural implicit fields.",
+      image: "https://picsum.photos/400/300?random=1",
       category: "novel-view"
     },
     {
       id: 2,
-      title: "[PLACEHOLDER] Novel Pose Example",
-      description: "This is a placeholder image. Replace with actual novel pose rendering.",
-      image: "https://via.placeholder.com/400x300",
+      title: "Dynamic Pose Transfer",
+      description: "Realistic pose transfer and animation with preserved identity features.",
+      image: "https://picsum.photos/400/300?random=2",
       category: "novel-pose"
     },
     {
       id: 3,
-      title: "[PLACEHOLDER] Novel ID Example",
-      description: "This is a placeholder image. Replace with actual novel ID rendering.",
-      image: "https://via.placeholder.com/400x300",
+      title: "Identity Synthesis",
+      description: "Advanced identity transfer maintaining facial characteristics and expressions.",
+      image: "https://picsum.photos/400/300?random=3",
       category: "novel-id"
     },
     {
       id: 4,
-      title: "[PLACEHOLDER] Special Effect Example",
-      description: "This is a placeholder image. Replace with actual special effect rendering.",
-      image: "https://via.placeholder.com/400x300",
+      title: "Special Effects Rendering",
+      description: "Costume and makeup transfer with photorealistic quality.",
+      image: "https://picsum.photos/400/300?random=4",
       category: "special-effect"
     },
     {
       id: 5,
-      title: "[PLACEHOLDER] Novel View Example 2",
-      description: "This is a placeholder image. Replace with actual novel view rendering.",
-      image: "https://via.placeholder.com/400x300",
+      title: "Multi-View Consistency",
+      description: "Consistent rendering across multiple camera viewpoints.",
+      image: "https://picsum.photos/400/300?random=5",
       category: "novel-view"
     },
     {
       id: 6,
-      title: "[PLACEHOLDER] Novel Pose Example 2",
-      description: "This is a placeholder image. Replace with actual novel pose rendering.",
-      image: "https://via.placeholder.com/400x300",
+      title: "Real-time Performance",
+      description: "Efficient real-time rendering for interactive applications.",
+      image: "https://picsum.photos/400/300?random=6",
       category: "novel-pose"
     }
   ];
 
+  const cardWidth = 300 + 24; // card width + gap
+  
+  // Create infinite scroll by multiplying items (more copies for smoother infinite scroll)
+  const infiniteItems = [...items, ...items, ...items, ...items, ...items];
+
+  // Initialize scroll position to the middle set of items
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const initialScroll = items.length * 2 * cardWidth; // Start at middle of 5 copies
+      scrollContainerRef.current.scrollLeft = initialScroll;
+    }
+  }, []);
+
   const handleScroll = () => {
     if (scrollContainerRef.current) {
-      const scrollLeft = scrollContainerRef.current.scrollLeft;
-      const cardWidth = 300 + 24; // card width + gap
-      const newIndex = Math.round(scrollLeft / cardWidth);
+      const container = scrollContainerRef.current;
+      const scrollLeft = container.scrollLeft;
+      const currentIndex = Math.round(scrollLeft / cardWidth);
       
-      // If we're at the cloned items at the start, jump to the real items
-      if (newIndex < items.length) {
-        scrollContainerRef.current.scrollLeft = (newIndex + items.length) * cardWidth;
-      }
-      // If we're at the cloned items at the end, jump to the real items
-      else if (newIndex >= items.length * 2) {
-        scrollContainerRef.current.scrollLeft = (newIndex - items.length) * cardWidth;
-      }
+      // Update active index for dots
+      setActiveIndex(currentIndex % items.length);
       
-      setActiveIndex(newIndex % items.length);
+      // Seamless infinite scroll - reset position when getting close to edges
+      const totalItems = infiniteItems.length;
+      const midPoint = Math.floor(totalItems / 2);
+      
+      // If we're too close to the beginning, jump to equivalent position later
+      if (currentIndex <= items.length) {
+        const newPosition = (currentIndex + items.length * 2) * cardWidth;
+        container.scrollLeft = newPosition;
+      }
+      // If we're too close to the end, jump to equivalent position earlier  
+      else if (currentIndex >= totalItems - items.length) {
+        const newPosition = (currentIndex - items.length * 2) * cardWidth;
+        container.scrollLeft = newPosition;
+      }
     }
   };
 
   const scrollToIndex = (index) => {
     if (scrollContainerRef.current) {
-      const cardWidth = 300 + 24; // card width + gap
-      // Add items.length to ensure we're in the middle set of items
+      // Always scroll to the middle set of items
+      const targetScroll = (index + items.length * 2) * cardWidth;
       scrollContainerRef.current.scrollTo({
-        left: (index + items.length) * cardWidth,
+        left: targetScroll,
         behavior: 'smooth'
       });
     }
@@ -140,7 +160,6 @@ const HighlightData = () => {
 
   const handlePrev = () => {
     if (scrollContainerRef.current) {
-      const cardWidth = 300 + 24; // card width + gap
       const currentScroll = scrollContainerRef.current.scrollLeft;
       scrollContainerRef.current.scrollTo({
         left: currentScroll - cardWidth,
@@ -151,7 +170,6 @@ const HighlightData = () => {
 
   const handleNext = () => {
     if (scrollContainerRef.current) {
-      const cardWidth = 300 + 24; // card width + gap
       const currentScroll = scrollContainerRef.current.scrollLeft;
       scrollContainerRef.current.scrollTo({
         left: currentScroll + cardWidth,
@@ -159,9 +177,6 @@ const HighlightData = () => {
       });
     }
   };
-
-  // Create a looped array by adding items at both ends
-  const loopedItems = [...items, ...items, ...items];
 
   return (
     <Box id="highlight-data" sx={{ py: 12, bgcolor: '#fff' }}>
@@ -200,12 +215,12 @@ const HighlightData = () => {
             ref={scrollContainerRef} 
             onScroll={handleScroll}
             sx={{ 
-              scrollBehavior: 'smooth',
+              scrollBehavior: 'auto', // Changed from 'smooth' to prevent interference
               scrollSnapType: 'x mandatory',
             }}
           >
-            {loopedItems.map((item, index) => (
-              <GalleryCard key={`${item.id}-${index}`}>
+            {infiniteItems.map((item, index) => (
+              <GalleryCard key={`${item.id}-${Math.floor(index / items.length)}-${index}`}>
                 <CardMedia
                   component="img"
                   height="200"
@@ -235,7 +250,7 @@ const HighlightData = () => {
           {items.map((_, index) => (
             <Dot
               key={index}
-              active={index === activeIndex % items.length}
+              active={index === activeIndex}
               onClick={() => scrollToIndex(index)}
             />
           ))}

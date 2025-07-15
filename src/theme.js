@@ -62,9 +62,11 @@ const theme = createTheme({
       fontWeight: 600,
     },
     body1: {
+      fontSize: '1.125rem', // 18px instead of default 16px
       lineHeight: 1.7,
     },
     body2: {
+      fontSize: '1rem', // 16px (keep default for smaller text)
       lineHeight: 1.6,
     },
   },

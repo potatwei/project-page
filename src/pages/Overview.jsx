@@ -1,21 +1,18 @@
-import { Box, Container, Typography, Grid, Card, CardContent } from '@mui/material';
+import { Box, Container, Typography, List, ListItem, ListItemText } from '@mui/material';
 
 const Overview = () => {
   const features = [
     {
-      title: 'Large-scale Dataset',
-      description: '500 actors with diverse performances and everyday actions',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'High Diversity',
+      description: 'We collected comprehensive dance performances featuring 60 distinct motions across 50+ dance styles including chacha, basic, suzieq, attitude, promenade, and more. Our dataset encompasses 527 different clothing types and 422 action types, with performance durations ranging from 10 seconds to 2 minutes.',
     },
     {
-      title: 'High-fidelity Rendering',
-      description: 'Neural implicit fields for photorealistic human rendering',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'High Fidelity',
+      description: 'We construct a professional multi-view capture system containing 26 synchronized cameras with maximum 4096 × 3000 resolution. Each frame is trained with 3D Gaussian Splatting (3DGS) models, providing high-fidelity neural representations for real-time rendering and novel view synthesis.',
     },
     {
-      title: 'Special Effects',
-      description: 'Support for various costumes, makeup, and interaction objects',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'Rich Annotations',
+      description: 'We provide off-the-shelf high-precision annotations including 2D/3D human body keypoints, foreground masks, and SMPL-X models. Our annotations are specifically optimized for 3D human body scenarios and dance motion analysis.',
     },
   ];
 
@@ -43,62 +40,28 @@ const Overview = () => {
             },
           }}
         >
-          Overview
+          Abstract
         </Typography>
-        <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>
-          [PLACEHOLDER] This is a comprehensive dataset for high-fidelity human-centric rendering, featuring a diverse collection of actors and performances.
-        </Typography>
+        
+        <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
+          <Typography variant="body1" paragraph align="justify" sx={{ mb: 4, fontSize: '1.1rem', lineHeight: 1.6 }}>
+            We present <strong>DanceNet3D</strong>, a large-scale, high-fidelity repository of neural dance rendering represented by 3D Gaussian Splatting of human dance performers. Our dataset provides comprehensive dance performances with:
+          </Typography>
 
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <Box
-              component="img"
-              src="https://via.placeholder.com/800x600"
-              alt="[PLACEHOLDER] Overview Image"
-              sx={{
-                width: '100%',
-                height: 'auto',
-                borderRadius: 4,
-                boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.1)',
-              }}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Typography variant="body1" paragraph>
-              [PLACEHOLDER] This is a placeholder description for the overview section. Replace with actual content about the project overview, goals, and significance.
-            </Typography>
-            <Typography variant="body1">
-              [PLACEHOLDER] This is a placeholder for additional information about the project's scope, methodology, and expected outcomes.
-            </Typography>
-          </Grid>
-        </Grid>
+          <Box sx={{ pl: 2 }}>
+            {features.map((feature, index) => (
+              <Box key={index} sx={{ mb: 3 }}>
+                <Typography variant="body1" component="div" sx={{ mb: 1 }}>
+                  <strong>{feature.title}:</strong> {feature.description}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
 
-        <Grid container spacing={4}>
-          {features.map((feature, index) => (
-            <Grid item xs={12} md={4} key={index}>
-              <Card sx={{ height: '100%' }}>
-                <Box
-                  component="img"
-                  src={feature.image}
-                  alt={feature.title}
-                  sx={{
-                    width: '100%',
-                    height: 200,
-                    objectFit: 'cover',
-                  }}
-                />
-                <CardContent>
-                  <Typography variant="h5" component="h3" gutterBottom>
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {feature.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+          <Typography variant="body1" paragraph align="justify" sx={{ mt: 4, fontSize: '1.1rem', lineHeight: 1.6 }}>
+            This dataset serves as a comprehensive resource for researchers working on 3D human rendering, dance analysis, and neural implicit field generation, with particular focus on multi-view dance capture and 3D Gaussian Splatting applications.
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );

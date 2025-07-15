@@ -5,22 +5,22 @@ const Benchmark = () => {
     {
       title: 'Novel View Synthesis',
       description: 'Evaluation of rendering quality from unseen viewpoints',
-      image: 'https://via.placeholder.com/300x200',
+      image: 'https://picsum.photos/300/200?random=40',
     },
     {
       title: 'Novel Pose Synthesis',
       description: 'Assessment of pose transfer and animation capabilities',
-      image: 'https://via.placeholder.com/300x200',
+      image: 'https://picsum.photos/300/200?random=41',
     },
     {
       title: 'Novel Identity Synthesis',
       description: 'Testing identity transfer and personalization features',
-      image: 'https://via.placeholder.com/300x200',
+      image: 'https://picsum.photos/300/200?random=42',
     },
     {
       title: 'Special Effects',
       description: 'Evaluation of costume and makeup transfer capabilities',
-      image: 'https://via.placeholder.com/300x200',
+      image: 'https://picsum.photos/300/200?random=43',
     },
   ];
 
@@ -54,7 +54,7 @@ const Benchmark = () => {
           [Placeholder] Explore our comprehensive benchmark results across various rendering tasks.
         </Typography>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={4} justifyContent="center">
           {benchmarks.map((benchmark, index) => (
             <Grid item xs={12} sm={6} md={3} key={index}>
               <Card sx={{ height: '100%' }}>
