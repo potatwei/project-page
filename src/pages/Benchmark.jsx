@@ -1,26 +1,27 @@
 import { Box, Container, Typography, Grid, Card, CardContent, Button } from '@mui/material';
+import rotatingGif from '../assets/rotating.gif';
 
 const Benchmark = () => {
   const benchmarks = [
     {
       title: 'Novel View Synthesis',
       description: 'Evaluation of rendering quality from unseen viewpoints',
-      image: 'https://picsum.photos/300/200?random=40',
+      image: rotatingGif,
     },
     {
       title: 'Novel Pose Synthesis',
       description: 'Assessment of pose transfer and animation capabilities',
-      image: 'https://picsum.photos/300/200?random=41',
+      image: rotatingGif,
     },
     {
       title: 'Novel Identity Synthesis',
       description: 'Testing identity transfer and personalization features',
-      image: 'https://picsum.photos/300/200?random=42',
+      image: rotatingGif,
     },
     {
       title: 'Special Effects',
       description: 'Evaluation of costume and makeup transfer capabilities',
-      image: 'https://picsum.photos/300/200?random=43',
+      image: rotatingGif,
     },
   ];
 

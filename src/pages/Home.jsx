@@ -89,11 +89,12 @@ const Home = () => {
                 fontWeight: 500,
                 maxWidth: '800px',
                 mx: 'auto',
-                lineHeight: 1.4,
+                lineHeight: 1.5,
                 textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                fontSize: { xs: '1.25rem', md: '1.75rem' },
               }}
             >
-              [Placeholder] A concise description of the dataset
+              This dataset consists of multiview professional dancers across various classical dances
             </Typography>
             <Box sx={{ 
               display: 'flex', 

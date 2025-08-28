@@ -7,10 +7,10 @@ const CoreFeatures = () => {
   const sectionRef = useRef(null);
 
   const stats = [
-    { number: 60, label: 'Motions', color: 'secondary', suffix: '' },
+    { number: 50, label: 'Motions', color: 'secondary', suffix: '' },
     { number: 26, label: 'Views', color: 'success', suffix: '' },
     { number: 4000000, label: 'Frames', color: 'warning', suffix: '' },
-    { number: 4096, label: 'Max Resolution', color: 'error', suffix: '' },
+    // { number: 4096, label: 'Max Resolution', color: 'error', suffix: '' },
   ];
 
   // Format numbers for display
@@ -72,23 +72,19 @@ const CoreFeatures = () => {
   const features = [
     {
       title: 'Multi-Camera Dance Capture',
-      description: 'Comprehensive dance dataset captured with 26 synchronized cameras featuring over 50 dance styles including chacha, basic, suzieq, attitude, promenade, and more. Each performance ranges from 10 seconds to 2 minutes.',
-      image: 'https://picsum.photos/300/200?random=20',
+      description: 'Comprehensive dance dataset captured with 26 synchronized cameras featuring over 50 dance styles including chacha, suzieq, attitude, and more. Each performance ranges from 10 seconds to 2 minutes.',
     },
     {
       title: '3D Gaussian Splatting Training',
-      description: 'Advanced 3DGS models trained for each frame, providing high-fidelity neural representations for real-time rendering and novel view synthesis of human dance performances.',
-      image: 'https://picsum.photos/300/200?random=21',
+      description: 'Advanced 3DGS models trained for each frame, providing high-fidelity representations for real-time rendering and novel view synthesis of human dance performances.',
     },
     {
       title: 'Diverse Dance Styles',
-      description: 'Covers a wide range of dance genres and difficulty levels, from basic movements to complex choreography, with 527 clothing types and 422 action types for comprehensive research applications.',
-      image: 'https://picsum.photos/300/200?random=22',
+      description: 'Covers a wide range of dance genres and difficulty levels, from basic movements to complex choreography.',
     },
     {
       title: 'High-Quality Annotations',
-      description: 'Includes precise 2D/3D human keypoints, foreground masks, and SMPL-X models, specifically optimized for 3D human body scenarios and dance motion analysis.',
-      image: 'https://picsum.photos/300/200?random=23',
+      description: 'Includes precise foreground masks specifically optimized for 3D human body scenarios and dance motion analysis.',
     },
   ];
 
@@ -118,7 +114,7 @@ const CoreFeatures = () => {
         >
           Core Features
         </Typography>
-        <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>
+        <Typography variant="body1" paragraph align="center" sx={{ mb: 6, fontSize: '1.15rem', lineHeight: 1.6 }}>
           Our comprehensive dance dataset provides unprecedented scale and quality for 3D human rendering research, featuring multi-camera capture and 3D Gaussian Splatting training for each frame.
         </Typography>
 
@@ -132,6 +128,11 @@ const CoreFeatures = () => {
                   p: 2, 
                   height: '100%',
                   background: 'linear-gradient(135deg, rgba(87, 6, 140, 0.05) 0%, rgba(0, 102, 177, 0.05) 100%)',
+                  transition: 'none',
+                  '&:hover': {
+                    transform: 'none',
+                    boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)',
+                  },
                 }}>
                   <Typography variant="h3" component="div" color="primary" fontWeight="bold">
                     {formatNumber(animatedStats[index])}
@@ -154,18 +155,12 @@ const CoreFeatures = () => {
               minWidth: { sm: '300px' },
               maxWidth: { sm: '500px' }
             }}>
-              <Card sx={{ height: '100%', width: '100%' }}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={feature.image}
-                  alt={feature.title}
-                />
+              <Card sx={{ height: '100%', width: '100%', transition: 'none', '&:hover': { transform: 'none', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)' } }}>
                 <CardContent>
                   <Typography variant="h5" component="h3" gutterBottom>
                     {feature.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '1rem', lineHeight: 1.6 }}>
                     {feature.description}
                   </Typography>
                 </CardContent>

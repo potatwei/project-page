@@ -51,11 +51,12 @@ const GradientBox = styled(Box)(({ theme }) => ({
 }));
 
 const SimpleCard = styled(Card)(({ theme }) => ({
+  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)',
+  transition: 'none',
   '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: `0px 8px 24px ${theme.palette.primary.main}15`,
+    transform: 'none',
+    boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)',
   },
-  transition: 'all 0.3s ease',
 }));
 
 const LandingPage = () => {
@@ -64,65 +65,63 @@ const LandingPage = () => {
   // Sample data - replace with actual data
   const teamMembers = [
     {
-      name: "Dr. Jane Smith",
+      name: "Yong Liu",
       role: "Principal Investigator",
-      affiliation: "NYU Tandon School of Engineering",
-      image: "https://picsum.photos/200/200?random=60"
+      link: 'https://engineering.nyu.edu/faculty/yong-liu',
     },
     {
-      name: "Dr. John Doe",
-      role: "Co-Principal Investigator",
-      affiliation: "NYU Courant Institute",
-      image: "https://picsum.photos/200/200?random=61"
+      name: "Yao Wang",
+      role: "Principal Investigator",
+      link: 'https://engineering.nyu.edu/faculty/yao-wang',
+      labPage: 'https://wp.nyu.edu/videolab/',
     },
     {
-      name: "Dr. Sarah Johnson",
-      role: "Research Scientist",
-      affiliation: "NYU Center for Data Science",
-      image: "https://picsum.photos/200/200?random=62"
+      name: "R. Luke Dubois",
+      role: "Principal Investigator",
+      link: 'https://engineering.nyu.edu/faculty/r-luke-dubois',
+      labPage: 'https://www.lukedubois.com/',
     },
     {
-      name: "Dr. Mike Chen",
-      role: "Senior Researcher",
-      affiliation: "NYU Computer Science",
-      image: "https://picsum.photos/200/200?random=63"
-    },
-  ];
-
-  const publications = [
-    {
-      title: 'DNA-Rendering: A Diverse Neural Actor Repository for High-Fidelity Human-centric Rendering',
-      authors: 'Smith J., Doe J., Johnson S., Chen M.',
-      venue: 'ICCV 2024',
-      year: '2024',
-      abstract: 'This paper presents DNA-Rendering, a comprehensive repository of neural actor representations for high-fidelity human-centric rendering applications.',
-      pdfLink: '#',
-      codeLink: '#',
+      name: "Todd Bryant",
+      role: "Senior Personnel",
+      link: 'https://engineering.nyu.edu/faculty/todd-bryant',
     },
     {
-      title: 'Neural Implicit Fields for Human Performance Capture',
-      authors: 'Doe J., Smith J., Johnson S.',
-      venue: 'CVPR 2024',
-      year: '2024',
-      abstract: 'We introduce a novel approach for capturing human performance using neural implicit fields, achieving unprecedented quality and efficiency.',
-      pdfLink: '#',
-      codeLink: '#',
+      name: "Tingyu Fan",
+      role: "PhD Student",
     },
     {
-      title: 'High-Fidelity Human Rendering with Multi-View Consistency',
-      authors: 'Chen M., Smith J., Johnson S.',
-      venue: 'SIGGRAPH 2023',
-      year: '2023',
-      abstract: 'A comprehensive framework for ensuring multi-view consistency in neural human rendering while maintaining high visual fidelity.',
-      pdfLink: '#',
-      codeLink: '#',
+      name: "Ran Gong",
+      role: "PhD Student",
+    },
+    {
+      name: "Yueyu Hu",
+      role: "PhD Student",
+      link: 'https://huzi96.github.io/',
+    },
+    {
+      name: "Chen Li",
+      role: "PhD Student",
+    },
+    {
+      name: "Tongyu Zong",
+      role: "PhD Student",
+    },
+    {
+      name: "Mingjian Li",
+      role: "Undergraduate Student",
+      link: 'https://limjiannn.com/',
+    },
+    {
+      name: "Shihang Wei",
+      role: "Undergraduate Student",
+      link: 'https://potatwei.github.io/',
     },
   ];
 
   const acknowledgments = [
     "National Science Foundation (NSF) for funding this research",
     "NYU High Performance Computing Center for computational resources",
-    "NVIDIA Research for hardware support and collaboration",
     "The volunteer participants who contributed to our dataset",
     "Open source community for invaluable tools and frameworks"
   ];
@@ -562,43 +561,53 @@ const LandingPage = () => {
               },
             }}
           >
-            Research Team
-          </Typography>
-          <Typography variant="body1" paragraph align="center" sx={{ mb: 4, maxWidth: '800px', mx: 'auto' }}>
-            Our interdisciplinary team brings together expertise in computer graphics, computer vision, 
-            machine learning, and human-computer interaction from across NYU.
+            Participants
           </Typography>
 
-          <Grid container spacing={4}>
+          <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
             {teamMembers.map((member, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <SimpleCard sx={{ textAlign: 'center', height: '100%' }}>
-                  <CardContent sx={{ p: 3 }}>
-                    <Avatar
-                      src={member.image}
-                      alt={member.name}
-                      sx={{
-                        width: 80,
-                        height: 80,
-                        mx: 'auto',
-                        mb: 2,
-                        border: `2px solid ${theme.palette.primary.main}20`,
-                      }}
-                    />
-                    <Typography variant="h6" component="h4" gutterBottom>
-                      {member.name}
-                    </Typography>
-                    <Typography variant="body2" color="primary" sx={{ mb: 1, fontWeight: 500 }}>
-                      {member.role}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {member.affiliation}
-                    </Typography>
-                  </CardContent>
-                </SimpleCard>
-              </Grid>
+              <Typography
+                key={index}
+                variant="h6"
+                sx={{
+                  mb: 0.5,
+                  textAlign: 'left',
+                  fontWeight: 500,
+                }}
+              >
+                {member.link ? (
+                  <Link
+                    href={member.link}
+                    underline="hover"
+                    sx={{ fontWeight: 600, color: theme.palette.accent.teal }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {member.name}
+                  </Link>
+                ) : (
+                  <Box component="span" sx={{ color: 'text.primary', fontWeight: 600 }}>
+                    {member.name}
+                  </Box>
+                )}
+                {`, ${member.role}`}
+                {member.labPage ? (
+                  <>
+                    {`, `}
+                    <Link
+                      href={member.labPage}
+                      underline="hover"
+                      sx={{ color: theme.palette.accent.teal }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Lab Page
+                    </Link>
+                  </>
+                ) : null}
+              </Typography>
             ))}
-          </Grid>
+          </Box>
         </Container>
       </Box>
 

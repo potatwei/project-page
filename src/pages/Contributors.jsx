@@ -1,36 +1,37 @@
 import { Box, Container, Typography, Grid, Card, CardContent, Avatar } from '@mui/material';
+import rotatingGif from '../assets/rotating.gif';
 
 const Contributors = () => {
   const teamMembers = [
     {
       name: "[PLACEHOLDER] Team Member 1",
       role: "Principal Investigator",
-      image: "https://picsum.photos/200/200?random=50"
+      image: rotatingGif
     },
     {
       name: "[PLACEHOLDER] Team Member 2",
       role: "Lead Researcher",
-      image: "https://picsum.photos/200/200?random=51"
+      image: rotatingGif
     },
     {
       name: "[PLACEHOLDER] Team Member 3",
       role: "Research Scientist",
-      image: "https://picsum.photos/200/200?random=52"
+      image: rotatingGif
     },
     {
       name: "[PLACEHOLDER] Team Member 4",
       role: "Research Scientist",
-      image: "https://picsum.photos/200/200?random=53"
+      image: rotatingGif
     },
     {
       name: "[PLACEHOLDER] Team Member 5",
       role: "Research Engineer",
-      image: "https://picsum.photos/200/200?random=54"
+      image: rotatingGif
     },
     {
       name: "[PLACEHOLDER] Team Member 6",
       role: "Research Engineer",
-      image: "https://picsum.photos/200/200?random=55"
+      image: rotatingGif
     }
   ];
 
@@ -38,17 +39,17 @@ const Contributors = () => {
     {
       name: "[PLACEHOLDER] Contributor 1",
       role: "External Collaborator",
-      image: "https://picsum.photos/200/200?random=56"
+      image: rotatingGif
     },
     {
       name: "[PLACEHOLDER] Contributor 2",
       role: "External Collaborator",
-      image: "https://picsum.photos/200/200?random=57"
+      image: rotatingGif
     },
     {
       name: "[PLACEHOLDER] Contributor 3",
       role: "External Collaborator",
-      image: "https://picsum.photos/200/200?random=58"
+      image: rotatingGif
     }
   ];
 

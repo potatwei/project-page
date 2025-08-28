@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Grid, Card, CardContent, Paper, Divider, List, ListItem, ListItemIcon, ListItemText, Chip } from '@mui/material';
-import { CameraAlt, Code, ThreeDRotation, Memory, Speed, Storage, Visibility, Build } from '@mui/icons-material';
+import { CameraAlt, Code, ThreeDRotation, Memory, Speed, Storage, Visibility, Build, BuildCircle, FourKRounded, FourGMobiledata, FourMp, FourKOutlined } from '@mui/icons-material';
 
 const Details = () => {
   const technicalSections = [
@@ -8,92 +8,54 @@ const Details = () => {
       icon: <CameraAlt sx={{ fontSize: 40, color: '#1976d2' }} />,
       description: 'Professional multi-camera setup for high-fidelity data acquisition',
       details: [
-        'Hardware Configuration: 60 synchronized cameras at 4096×3000 resolution',
+        'Hardware Configuration: 26 synchronized cameras at 1280×800 resolution',
         'Capture Rate: 30 FPS with hardware-level synchronization',
         'Lighting Setup: Professional LED array with controlled illumination',
-        'Calibration: Precise camera intrinsic and extrinsic parameter estimation',
         'Coverage: 360-degree capture volume with optimal viewpoint distribution',
         'Data Format: RAW image sequences with metadata timestamps'
       ],
-      specs: {
-        'Resolution': '4096×3000',
-        'Frame Rate': '30 FPS',
-        'Cameras': '60 units',
-        'Sync Accuracy': '<1ms',
-        'Capture Volume': '3×3×2.5m',
-        'Color Depth': '16-bit'
-      }
     },
     {
       title: 'Data Preprocessing',
       icon: <Code sx={{ fontSize: 40, color: '#388e3c' }} />,
       description: 'Advanced pipeline for data cleaning, calibration, and preparation',
       details: [
-        'Image Rectification: Lens distortion correction and color calibration',
         'Background Subtraction: Automated foreground mask generation',
-        'Temporal Alignment: Multi-camera synchronization and frame matching',
         'Quality Control: Automated detection and filtering of corrupted frames',
-        'Pose Estimation: 2D/3D keypoint detection using state-of-the-art models',
-        'SMPL-X Fitting: Human body model alignment with captured data'
+        'Calibration: Precise camera intrinsic and extrinsic parameter estimation in COLMAP format',
+        'Dense Point Cloud Generation: 3D point cloud generation from multi-view images with OpenMVS',
       ],
-      specs: {
-        'Processing Time': '2-3 hours/sequence',
-        'Keypoint Accuracy': '±2px (2D), ±5mm (3D)',
-        'Mask Quality': '>95% foreground accuracy',
-        'Temporal Consistency': '99.5% frame matching',
-        'SMPL-X Fitting': '<10mm body error',
-        'Throughput': '10TB/day'
-      }
     },
     {
-      title: '3D Gaussian Splatting',
-      icon: <ThreeDRotation sx={{ fontSize: 40, color: '#f57c00' }} />,
-      description: 'Neural scene representation with real-time rendering capability',
+      title: '4D Gaussian Splatting',
+      icon: <FourKOutlined sx={{ fontSize: 40, color: '#f57c00' }} />,
+      description: 'Compact scene representation with real-time rendering capability',
+      details: [
+        'Training Pipeline: Multi-view consistency optimization with differentiable rendering',
+        'Deformation Network: Deformation network to model the dynamic scene',
+        'Batch Training: Batch size of 30 frames to improve training stability',
+        
+      ],
+
+    },
+    {
+      title: '3DGS Extraction',
+      icon: <ThreeDRotation sx={{ fontSize: 40, color: '#d32f2f' }} />,
+      description: 'High-quality 3DGS extraction from 4DGS for real-time rendering',
       details: [
         'Gaussian Primitives: Adaptive density control with position, scale, and rotation',
-        'Training Pipeline: Multi-view consistency optimization with differentiable rendering',
-        'Opacity Learning: Automatic foreground/background separation',
-        'Color Representation: Spherical harmonics for view-dependent appearance',
-        'Optimization: Adam optimizer with learning rate scheduling',
-        'Regularization: Density and smoothness constraints for stable training'
+        'Extraction: 3DGS extraction from 4DGS',
+        'Export: Perframe 3DGS for traditional 3DGS pipeline',
+        'Rendering: Real-time rendering with SuperSplat',
       ],
-      specs: {
-        'Gaussians/Scene': '1-5M primitives',
-        'Training Time': '30-60 minutes/scene',
-        'Rendering Speed': '60+ FPS (1080p)',
-        'Memory Usage': '2-8GB VRAM',
-        'PSNR Quality': '30-35 dB',
-        'Model Size': '50-200MB'
-      }
-    },
-    {
-      title: 'Mesh Generation',
-      icon: <Build sx={{ fontSize: 40, color: '#d32f2f' }} />,
-      description: 'High-quality mesh extraction and optimization for traditional rendering',
-      details: [
-        'Surface Reconstruction: Marching cubes with adaptive resolution',
-        'Mesh Optimization: Quadric error metrics for topology preservation',
-        'Texture Generation: UV mapping with multi-view texture synthesis',
-        'LOD Creation: Multiple detail levels for efficient rendering',
-        'Rigging Support: Skeleton binding for animation compatibility',
-        'Export Formats: OBJ, FBX, GLB with material definitions'
-      ],
-      specs: {
-        'Vertex Count': '50K-500K vertices',
-        'Texture Resolution': '2048×2048',
-        'Processing Time': '10-30 minutes/mesh',
-        'UV Quality': '>90% texture coverage',
-        'Mesh Accuracy': '±2mm surface error',
-        'File Size': '10-100MB'
-      }
     }
   ];
 
   const workflowSteps = [
     { step: 1, title: 'Multi-Camera Capture', description: 'Synchronized recording from 60 cameras' },
     { step: 2, title: 'Data Preprocessing', description: 'Calibration, filtering, and annotation' },
-    { step: 3, title: '3DGS Training', description: 'Neural scene representation learning' },
-    { step: 4, title: 'Mesh Extraction', description: 'Traditional mesh generation and optimization' }
+    { step: 3, title: '4DGS Training', description: 'Dynamic scene representation learning' },
+    { step: 4, title: '3DGS Extraction', description: 'Static scene representation extraction' }
   ];
 
   return (
@@ -123,7 +85,7 @@ const Details = () => {
           Technical Details
         </Typography>
         
-        <Typography variant="body1" paragraph align="center" sx={{ mb: 6, maxWidth: '800px', mx: 'auto' }}>
+        <Typography variant="body1" paragraph align="center" sx={{ mb: 6, maxWidth: '800px', mx: 'auto', fontSize: '1.15rem', lineHeight: 1.6 }}>
           Our comprehensive technical pipeline combines cutting-edge hardware with advanced algorithms 
           to deliver unprecedented quality in human-centric neural rendering and mesh generation.
         </Typography>
@@ -181,8 +143,8 @@ const Details = () => {
                   variant="body2" 
                   color="text.secondary"
                   sx={{ 
-                    fontSize: { xs: '0.6rem', sm: '0.75rem', md: '0.875rem' },
-                    lineHeight: { xs: 1.1, sm: 1.2, md: 1.3 },
+                    fontSize: { xs: '0.75rem', sm: '0.9rem', md: '1rem' },
+                    lineHeight: { xs: 1.2, sm: 1.3, md: 1.5 },
                     display: { xs: 'none', sm: 'block' },
                     wordBreak: 'break-word',
                     hyphens: 'auto'
@@ -206,10 +168,10 @@ const Details = () => {
               <Card sx={{ 
                 height: '100%',
                 width: '100%',
-                transition: 'all 0.3s ease',
+                transition: 'none',
                 '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
+                  transform: 'none',
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)'
                 }
               }}>
                 <CardContent sx={{ p: 4 }}>
@@ -220,7 +182,7 @@ const Details = () => {
                     </Typography>
                   </Box>
                   
-                  <Typography variant="body1" paragraph color="text.secondary" sx={{ mb: 3 }}>
+                  <Typography variant="body1" paragraph color="text.secondary" sx={{ mb: 3, fontSize: '1.05rem', lineHeight: 1.6 }}>
                     {section.description}
                   </Typography>
 

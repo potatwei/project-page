@@ -100,7 +100,7 @@ const Navbar = () => {
                 textAlign: 'center',
                 color: theme.palette.primary.main,
                 '& .MuiListItemText-primary': {
-                  fontSize: '0.95rem',
+                  fontSize: '1.1rem',
                   fontWeight: 500,
                 },
               }} 
@@ -180,7 +180,8 @@ const Navbar = () => {
                 to={item.type === 'link' ? item.action : undefined}
                 sx={{
                   color: isScrolled ? '#57068C' : '#ffffff',
-                  fontWeight: 500,
+                  fontWeight: 600,
+                  fontSize: '1.15rem',
                   textTransform: 'none',
                   borderRadius: 2,
                   px: 2,

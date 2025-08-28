@@ -64,14 +64,14 @@ const Download = () => {
         >
           Download
         </Typography>
-        <Typography variant="body1" paragraph align="center" sx={{ mb: 6 }}>
-          [Placeholder] Access our dataset and start exploring the possibilities of high-fidelity human rendering.
+        <Typography variant="body1" paragraph align="center" sx={{ mb: 6, fontSize: '1.25rem', lineHeight: 1.6 }}>
+          [Placeholder] Access our dataset and start exploring the possibilities of high-fidelity dances.
         </Typography>
 
         <Grid container spacing={4} justifyContent="center">
           {downloadOptions.map((option, index) => (
             <Grid item xs={12} sm={10} md={4} key={index}>
-              <Card sx={{ height: '100%', maxWidth: 400, mx: 'auto', display: 'flex', flexDirection: 'column' }}>
+              <Card sx={{ height: '100%', maxWidth: 400, mx: 'auto', display: 'flex', flexDirection: 'column', transition: 'none', '&:hover': { transform: 'none', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)' } }}>
                 <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                   <Box>
                     <Typography variant="h5" component="h3" gutterBottom>
@@ -80,7 +80,7 @@ const Download = () => {
                     <Typography variant="h6" color="primary" gutterBottom>
                       {option.size}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" paragraph>
+                    <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '1rem', lineHeight: 1.6 }}>
                       {option.description}
                     </Typography>
                     <List dense>

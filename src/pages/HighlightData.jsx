@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Box, Container, Typography, Card, CardMedia, CardContent, useTheme, IconButton } from '@mui/material';
+import rotatingGif from '../assets/rotating.gif';
 import { styled } from '@mui/material/styles';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -19,10 +20,14 @@ const ScrollableContainer = styled(Box)(({ theme }) => ({
 const GalleryCard = styled(Card)(({ theme }) => ({
   minWidth: 300,
   maxWidth: 400,
+  minHeight: 300,
   scrollSnapAlign: 'start',
-  transition: 'transform 0.3s ease-in-out',
-  '&:hover': {
-    transform: 'translateY(-8px)',
+  '&&': {
+    transition: 'none',
+  },
+  '&&:hover': {
+    transform: 'none',
+    boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)',
   },
 }));
 
@@ -66,46 +71,58 @@ const HighlightData = () => {
   const items = [
     {
       id: 1,
-      title: "Novel View Synthesis",
-      description: "High-quality rendering from unseen viewpoints using neural implicit fields.",
-      image: "https://picsum.photos/400/300?random=1",
+      title: "Pirouettes",
+      image: rotatingGif,
       category: "novel-view"
     },
     {
       id: 2,
-      title: "Dynamic Pose Transfer",
-      description: "Realistic pose transfer and animation with preserved identity features.",
-      image: "https://picsum.photos/400/300?random=2",
+      title: "Basic Suzie Q",
+      image: rotatingGif,
       category: "novel-pose"
     },
     {
       id: 3,
-      title: "Identity Synthesis",
-      description: "Advanced identity transfer maintaining facial characteristics and expressions.",
-      image: "https://picsum.photos/400/300?random=3",
+      title: "Son Basic",
+      image: rotatingGif,
       category: "novel-id"
     },
     {
       id: 4,
-      title: "Special Effects Rendering",
-      description: "Costume and makeup transfer with photorealistic quality.",
-      image: "https://picsum.photos/400/300?random=4",
+      title: "Flair",
+      image: rotatingGif,
       category: "special-effect"
     },
     {
       id: 5,
-      title: "Multi-View Consistency",
-      description: "Consistent rendering across multiple camera viewpoints.",
-      image: "https://picsum.photos/400/300?random=5",
+      title: "Chacha",
+      image: rotatingGif,
       category: "novel-view"
     },
     {
       id: 6,
-      title: "Real-time Performance",
-      description: "Efficient real-time rendering for interactive applications.",
-      image: "https://picsum.photos/400/300?random=6",
+      title: "Russia Costume",
+      image: rotatingGif,
       category: "novel-pose"
-    }
+    },
+    {
+      id: 7,
+      title: "Salsa Basic",
+      image: rotatingGif,
+      category: "novel-pose"
+    },
+    {
+      id: 8,
+      title: "Circle Turns",
+      image: rotatingGif,
+      category: "novel-pose"
+    },
+    {
+      id: 9,
+      title: "Grand Plies",
+      image: rotatingGif,
+      category: "novel-pose"
+    },
   ];
 
   const cardWidth = 300 + 24; // card width + gap
@@ -223,7 +240,7 @@ const HighlightData = () => {
               <GalleryCard key={`${item.id}-${Math.floor(index / items.length)}-${index}`}>
                 <CardMedia
                   component="img"
-                  height="200"
+                  height="320"  
                   image={item.image}
                   alt={item.title}
                   sx={{ objectFit: 'cover' }}
@@ -231,9 +248,6 @@ const HighlightData = () => {
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="div">
                     {item.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {item.description}
                   </Typography>
                 </CardContent>
               </GalleryCard>
