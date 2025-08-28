@@ -52,9 +52,10 @@ const LandingNavbar = () => {
   };
 
   const navItems = [
-    { label: 'Overview', action: () => scrollToSection('overview'), type: 'scroll' },
-    { label: 'Team', action: () => scrollToSection('team'), type: 'scroll' },
+    { label: 'Summary', action: () => scrollToSection('summary'), type: 'scroll' },
+    { label: 'Press', action: () => scrollToSection('press'), type: 'scroll' },
     { label: 'Research', action: () => scrollToSection('research'), type: 'scroll' },
+    { label: 'Participants', action: () => scrollToSection('participants'), type: 'scroll' },
     { label: 'Dataset', action: '/dataset', type: 'link' },
   ];
 
@@ -128,25 +129,23 @@ const LandingNavbar = () => {
       }}
     >
       <Toolbar>
-        <Typography
-          variant="h6"
-          component="div"
+        <Box
+          component="img"
+          src="/videolab_logo.png"
+          alt="Video LAB MY STUDIOS"
           sx={{
-            flexGrow: 1,
-            color: isScrolled ? '#57068C' : 'transparent',
-            fontWeight: 700,
+            height: '80px',
+            width: 'auto',
             cursor: 'pointer',
             transition: 'all 0.3s ease-in-out',
-            opacity: isScrolled ? 1 : 0,
+            opacity: isScrolled ? 1 : 0.8,
             '&:hover': {
-              color: isScrolled ? '#3D0461' : 'rgba(255, 255, 255, 0.3)',
-              opacity: isScrolled ? 1 : 0.3,
+              opacity: 1,
+              transform: 'scale(1.05)',
             },
           }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        >
-          Project Title
-        </Typography>
+        />
         {isMobile ? (
           <IconButton
             color="inherit"
@@ -156,6 +155,7 @@ const LandingNavbar = () => {
             sx={{ 
               color: isScrolled ? '#57068C' : '#ffffff',
               transition: 'all 0.3s ease-in-out',
+              marginLeft: 'auto',
               '&:hover': {
                 backgroundColor: isScrolled 
                   ? 'rgba(87, 6, 140, 0.1)'
@@ -166,7 +166,7 @@ const LandingNavbar = () => {
             <MenuIcon />
           </IconButton>
         ) : (
-          <Box sx={{ display: 'flex', gap: 0.5 }}>
+          <Box sx={{ display: 'flex', gap: 0.5, marginLeft: 'auto' }}>
             {navItems.map((item, index) => (
               <Button
                 key={index}
@@ -176,7 +176,8 @@ const LandingNavbar = () => {
                 to={item.type === 'link' ? item.action : undefined}
                 sx={{
                   color: isScrolled ? '#57068C' : '#ffffff',
-                  fontWeight: 500,
+                  fontWeight: 600,
+                  fontSize: '1.25rem',
                   textTransform: 'none',
                   borderRadius: 2,
                   px: 2,

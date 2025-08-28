@@ -155,9 +155,9 @@ const LandingPage = () => {
                 letterSpacing: '-0.02em',
               }}
             >
-              Project Title
+              Coding and Streaming of Point Cloud Video
             </Typography>
-            <Typography
+            {/* <Typography
               variant="h5"
               component="h2"
               sx={{
@@ -170,20 +170,21 @@ const LandingPage = () => {
               }}
             >
               A Diverse Neural Actor Repository for High-Fidelity Human-centric Rendering
-            </Typography>
+            </Typography> */}
             
             <Box sx={{ 
               display: 'flex', 
-              flexDirection: 'column',
+              flexDirection: 'row',
               alignItems: 'center',
               gap: 3,
               mt: 2,
+              justifyContent: 'center',
             }}>
               <Button
                 variant="contained"
                 size="large"
-                endIcon={<ArrowForward />}
-                href="/dataset"
+                endIcon={<Launch />}
+                href="#research"
                 sx={{
                   backgroundColor: theme.palette.secondary.main,
                   color: theme.palette.secondary.contrastText,
@@ -201,13 +202,13 @@ const LandingPage = () => {
                   transition: 'all 0.3s ease',
                 }}
               >
-                Explore Dataset
+                View Research
               </Button>
               <Button
                 variant="outlined"
                 size="large"
-                endIcon={<Launch />}
-                href="#research"
+                endIcon={<ArrowForward />}
+                href="/dataset"
                 sx={{
                   borderColor: '#fff',
                   color: '#fff',
@@ -216,12 +217,16 @@ const LandingPage = () => {
                     borderColor: theme.palette.secondary.main,
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   },
-                  px: 3,
-                  py: 1.5,
-                  minWidth: '160px',
+                  px: 5,
+                  py: 2,
+                  minWidth: '200px',
+                  fontSize: '1.2rem',
+                  fontWeight: 600,
+                  borderRadius: 3,
+                  transition: 'all 0.3s ease',
                 }}
               >
-                View Research
+                Explore Dataset
               </Button>
             </Box>
           </Box>
@@ -229,7 +234,7 @@ const LandingPage = () => {
       </GradientBox>
 
       {/* Project Summary */}
-      <Box id="overview" sx={{ py: 8, bgcolor: '#fff' }}>
+      <Box id="summary" sx={{ py: 8, bgcolor: '#fff' }}>
         <Container maxWidth="lg">
           <Typography 
             variant="h3" 
@@ -252,53 +257,184 @@ const LandingPage = () => {
               },
             }}
           >
-            Project Overview
+            PROJECT SUMMARY
           </Typography>
           
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
-            <Box sx={{ flex: 1, pr: { md: 2 } }}>
-              <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7, mb: 3 }}>
-                Our project represents a groundbreaking initiative to revolutionize human-centric rendering 
-                through a comprehensive, diverse repository of neural actor representations. Our project aims 
-                to advance the field of computer graphics and computer vision by providing researchers and 
-                developers with high-quality, accessible research data.
+          <Box sx={{ maxWidth: '850px', mx: 'auto' }}>
+            <Typography variant="body1" sx={{ fontSize: '1.4rem', lineHeight: 1.7, mb: 3, fontWeight: 500 }}>
+              Volumetric video streaming will take telepresence to the next level by delivering full-fledged 3D information of the remote scene and facilitating six-degree-of-freedom viewpoint selection to create a truly immersive visual experience. With recent advances in the key enabling technologies, we are now at the verge of completing the puzzle of teleporting holograms of real-world humans/creatures/objects through the global Internet to realize the full potentials of Virtual/Augmented/Mixed Reality. Streaming volumetric video over the Internet requires significantly higher bandwidth and lower latency than the traditional 2D video; processing volumetric video also incurs high computation loads on the source and receiver sides.
+            </Typography>
+            <Typography variant="body1" sx={{ fontSize: '1.4rem', lineHeight: 1.7, mb: 3, fontWeight: 500 }}>
+              We propose an inter-disciplinary research plan to holistically address the communication and computation challenges of point cloud video (PCV) by jointly designing coding, streaming, and edge processing strategies. We develop object-centric, view-adaptive, progressive, and edge-aware designs to deliver robust and high-quality viewer Quality-of-Experience (QoE) in the faces of network and viewer dynamics.
+            </Typography>
+            <Typography variant="body1" sx={{ fontSize: '1.4rem', lineHeight: 1.7, fontWeight: 500 }}>
+              This research consists of four research thrusts:
+            </Typography>
+            <Box component="ol" sx={{ mt: 2, pl: 3 }}>
+              <Typography 
+                component="li" 
+                variant="body1" 
+                sx={{ 
+                  fontSize: '1.2rem', 
+                  lineHeight: 1.7, 
+                  mb: 2,
+                  p: 2,
+                  borderRadius: 1,
+                  background: 'linear-gradient(135deg, rgba(87, 6, 140, 0.05) 0%, rgba(0, 102, 177, 0.05) 100%)',
+                  borderLeft: '3px solid #57068C',
+                  boxShadow: '0 1px 4px rgba(0, 0, 0, 0.08)'
+                }}
+              >
+                Develop efficient point cloud video coding schemes that facilitate rate adaptation and field of view (FoV) adaption
               </Typography>
-              <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7, mb: 3 }}>
-                This innovative repository enables the creation of more realistic and diverse human 
-                representations in virtual environments, opening new possibilities for applications in 
-                entertainment, education, healthcare, and beyond. By democratizing access to advanced 
-                neural rendering capabilities, we're fostering innovation across multiple domains.
+              <Typography 
+                component="li" 
+                variant="body1" 
+                sx={{ 
+                  fontSize: '1.2rem', 
+                  lineHeight: 1.7, 
+                  mb: 2,
+                  p: 2,
+                  borderRadius: 1,
+                  background: 'linear-gradient(135deg, rgba(0, 102, 177, 0.05) 0%, rgba(87, 6, 140, 0.05) 100%)',
+                  borderLeft: '3px solid #0066B1',
+                  boxShadow: '0 1px 4px rgba(0, 0, 0, 0.08)'
+                }}
+              >
+                Develop progressive streaming framework to gradually refine the spatial resolution of each region in the predicted FoV as its playback time approaches.
               </Typography>
-              <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
-                Our interdisciplinary approach combines cutting-edge research in neural networks, 
-                computer vision, and human performance capture to deliver unprecedented quality and 
-                diversity in human-centric rendering solutions.
+              <Typography 
+                component="li" 
+                variant="body1" 
+                sx={{ 
+                  fontSize: '1.2rem', 
+                  lineHeight: 1.7, 
+                  mb: 2,
+                  p: 2,
+                  borderRadius: 1,
+                  background: 'linear-gradient(135deg, rgba(87, 6, 140, 0.05) 0%, rgba(0, 102, 177, 0.05) 100%)',
+                  borderLeft: '3px solid #57068C',
+                  boxShadow: '0 1px 4px rgba(0, 0, 0, 0.08)'
+                }}
+              >
+                Design edge PCV caching algorithms that work seamlessly with edge-based PCV post-processing.
+              </Typography>
+              <Typography 
+                component="li" 
+                variant="body1" 
+                sx={{ 
+                  fontSize: '1.2rem', 
+                  lineHeight: 1.7, 
+                  mb: 2,
+                  p: 2,
+                  borderRadius: 1,
+                  background: 'linear-gradient(135deg, rgba(0, 102, 177, 0.05) 0%, rgba(87, 6, 140, 0.05) 100%)',
+                  borderLeft: '3px solid #0066B1',
+                  boxShadow: '0 1px 4px rgba(0, 0, 0, 0.08)'
+                }}
+              >
+                Develop a fully-functional PCV streaming testbed and conduct modern dance education experiments by streaming PCVs of professional dancers to dance students in on-demand and live fashions.
               </Typography>
             </Box>
-            <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 3 }}>
-              <SimpleCard>
-                <CardContent sx={{ p: 3 }}>
-                  <Typography variant="h5" gutterBottom color="primary" fontWeight={600}>
-                    Mission
-                  </Typography>
-                  <Typography variant="body1" paragraph>
-                    To advance the field of computer graphics and computer vision through a comprehensive, 
-                    diverse repository of neural actor representations, providing researchers with 
-                    high-quality, accessible research data.
-                  </Typography>
-                </CardContent>
-              </SimpleCard>
-              <SimpleCard>
-                <CardContent sx={{ p: 3 }}>
-                  <Typography variant="h5" gutterBottom color="primary" fontWeight={600}>
-                    Impact
-                  </Typography>
-                  <Typography variant="body1" paragraph>
-                    Enabling more realistic and diverse human representations in virtual environments, 
-                    contributing to applications in entertainment, education, healthcare, and beyond.
-                  </Typography>
-                </CardContent>
-              </SimpleCard>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* Press Release */}
+      <Box id="press" sx={{ py: 8, bgcolor: '#f8f9fa' }}>
+        <Container maxWidth="lg">
+          <Typography 
+            variant="h3" 
+            component="h2" 
+            gutterBottom 
+            align="center"
+            sx={{
+              mb: 5,
+              position: 'relative',
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -16,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '60px',
+                height: '4px',
+                background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                borderRadius: '2px',
+              },
+            }}
+          >
+            Press Release
+          </Typography>
+          
+          <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
+            <Typography 
+              variant="h4" 
+              component="h3" 
+              gutterBottom 
+              sx={{ 
+                color: theme.palette.primary.main, 
+                fontWeight: 600,
+                mb: 3,
+                textAlign: 'center'
+              }}
+            >
+              NYU Tandon Cuts a Rug with New 3D Video Technology
+            </Typography>
+            
+            <Typography variant="body1" sx={{ fontSize: '1.2rem', lineHeight: 1.7, mb: 3, fontWeight: 500 }}>
+              A groundbreaking research project spearheaded by NYU Tandon School of Engineering will bring cutting-edge immersive three-dimensional (3D) video to dance education, making learning the art form more available to a diverse range of students.
+            </Typography>
+            
+            <Typography variant="body1" sx={{ fontSize: '1.2rem', lineHeight: 1.7, mb: 3, fontWeight: 500 }}>
+              The project, supported by a $1.2 million NSF grant, aims to make Point-Cloud Video (PCV) technology suitable for streaming onto standard Internet-connected devices. PCV allows viewers to "move" within an immersive video environment, observing scenes from any angle as if physically present.
+            </Typography>
+            
+            <Box sx={{ 
+              p: 4, 
+              borderRadius: 3, 
+              background: 'linear-gradient(135deg, rgba(87, 6, 140, 0.08) 0%, rgba(0, 102, 177, 0.08) 100%)',
+              border: '1px solid rgba(87, 6, 140, 0.1)',
+              my: 4
+            }}>
+              <Typography variant="h6" sx={{ color: theme.palette.primary.main, fontWeight: 600, mb: 2 }}>
+                Key Highlights:
+              </Typography>
+              <Box component="ul" sx={{ pl: 3 }}>
+                <Typography component="li" sx={{ fontSize: '1.1rem', lineHeight: 1.7, mb: 1 }}>
+                  $1.2 million NSF grant for 4-year research project
+                </Typography>
+                <Typography component="li" sx={{ fontSize: '1.1rem', lineHeight: 1.7, mb: 1 }}>
+                  Collaboration with Mark Morris Dance Group and NYU Tisch
+                </Typography>
+                <Typography component="li" sx={{ fontSize: '1.1rem', lineHeight: 1.7, mb: 1 }}>
+                  Volumetric capture stage at NYU Tandon @ The Yard
+                </Typography>
+              </Box>
+            </Box>
+            
+            <Box sx={{ textAlign: 'center', mt: 4 }}>
+              <Button
+                variant="outlined"
+                color="primary"
+                size="large"
+                endIcon={<Launch />}
+                href="https://engineering.nyu.edu/news/nyu-tandon-cuts-rug-new-3d-video-technology"
+                target="_blank"
+                sx={{
+                  borderWidth: 2,
+                  px: 4,
+                  py: 1.5,
+                  fontSize: '1.1rem',
+                  fontWeight: 600,
+                  '&:hover': {
+                    borderWidth: 3,
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                Read Full Article
+              </Button>
             </Box>
           </Box>
         </Container>
@@ -331,47 +467,73 @@ const LandingPage = () => {
             Related Publications
           </Typography>
           
-          <Grid container spacing={4}>
-            {publications.map((pub, index) => (
-              <Grid item xs={12} key={index}>
-                <SimpleCard>
-                  <CardContent sx={{ p: 3 }}>
-                    <Typography variant="h5" component="h3" gutterBottom color="primary">
-                      {pub.title}
-                    </Typography>
-                    <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-                      {pub.authors}
-                    </Typography>
-                    <Typography variant="body2" color="primary" sx={{ mb: 2, fontWeight: 500 }}>
-                      {pub.venue} • {pub.year}
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                      {pub.abstract}
-                    </Typography>
-                    <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-                      <Button
-                        variant="outlined"
-                        color="primary"
-                        startIcon={<PictureAsPdf />}
-                        component={Link}
-                        href={pub.pdfLink}
-                      >
-                        PDF
-                      </Button>
-                      <Button
-                        variant="outlined"
-                        color="primary"
-                        startIcon={<Code />}
-                        component={Link}
-                        href={pub.codeLink}
-                      >
-                        Code
-                      </Button>
-                    </Box>
-                  </CardContent>
-                </SimpleCard>
-              </Grid>
-            ))}
+          <Grid container spacing={4} sx={{ width: '100%' }}>
+            <Grid item xs={12} sx={{ width: '100%' }}>
+              <SimpleCard sx={{ width: '100%', minWidth: '100%' }}>
+                <CardContent sx={{ p: 3 }}>
+                  <Typography variant="h5" component="h3" gutterBottom color="primary">
+                    Static and Dynamic Point Cloud Coding
+                  </Typography>
+
+                  <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      startIcon={<Launch />}
+                      component={Link}
+                      href="https://wp.nyu.edu/videolab/static-and-dynamic-point-cloud-coding/"
+                      target="_blank"
+                    >
+                      View Research
+                    </Button>
+                  </Box>
+                </CardContent>
+              </SimpleCard>
+            </Grid>
+            
+            <Grid item xs={12} sx={{ width: '100%' }}>
+              <SimpleCard sx={{ width: '100%', minWidth: '100%' }}>
+                <CardContent sx={{ p: 3 }}>
+                  <Typography variant="h5" component="h3" gutterBottom color="primary">
+                    FoV-Adaptive Point Cloud Video Streaming
+                  </Typography>
+                </CardContent>
+              </SimpleCard>
+            </Grid>
+            
+            <Grid item xs={12} sx={{ width: '100%' }}>
+              <SimpleCard sx={{ width: '100%', minWidth: '100%' }}>
+                <CardContent sx={{ p: 3 }}>
+                  <Typography variant="h5" component="h3" gutterBottom color="primary">
+                    Field-of-View Prediction
+                  </Typography>
+
+                  <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      startIcon={<Launch />}
+                      component={Link}
+                      href="https://chenli1996.github.io/PCV_FoV_Prediction/"
+                      target="_blank"
+                    >
+                      View Research
+                    </Button>
+                  </Box>
+                </CardContent>
+              </SimpleCard>
+            </Grid>
+            
+            <Grid item xs={12} sx={{ width: '100%' }}>
+              <SimpleCard sx={{ width: '100%', minWidth: '100%' }}>
+                <CardContent sx={{ p: 3 }}>
+                  <Typography variant="h5" component="h3" gutterBottom color="primary">
+                    Volumetric Video Capture of Dancers
+                  </Typography>
+
+                </CardContent>
+              </SimpleCard>
+            </Grid>
           </Grid>
         </Container>
       </Box>
