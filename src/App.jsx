@@ -4,7 +4,7 @@ import DatasetPage from './pages/DatasetPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/project-page">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/dataset" element={<DatasetPage />} />
