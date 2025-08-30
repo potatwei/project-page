@@ -15,8 +15,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
-
-const logoUrl = import.meta.env.BASE_URL + 'videolab_logo.png';
+import videolabLogo from '../assets/videolab_logo.png';
 
 const LandingNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -133,7 +132,7 @@ const LandingNavbar = () => {
       <Toolbar>
         <Box
           component="img"
-          src={logoUrl}
+          src={videolabLogo}
           alt="Video LAB MY STUDIOS"
           sx={{
             height: '80px',
