@@ -207,7 +207,7 @@ const LandingPage = () => {
                 variant="outlined"
                 size="large"
                 endIcon={<ArrowForward />}
-                href="/dataset"
+                href="/project-page/dataset"
                 sx={{
                   borderColor: '#fff',
                   color: '#fff',
@@ -690,7 +690,7 @@ const LandingPage = () => {
               variant="contained"
               size="large"
               endIcon={<ArrowForward />}
-              href="/dataset"
+              href="/project-page/dataset" 
               sx={{
                 backgroundColor: theme.palette.secondary.main,
                 color: theme.palette.secondary.contrastText,
